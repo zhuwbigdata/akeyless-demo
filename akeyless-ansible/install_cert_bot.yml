@@ -1,0 +1,43 @@
+---
+- name: Install certbot 
+  hosts: akaylessgw.mdwlab.org 
+  become: true
+  become_method: sudo
+
+  tasks:
+    - name: Update the apt package index
+      apt:
+        update_cache: yes
+
+    - name: Install required prerequisites
+      apt:
+        name:
+          - python3
+          - python3-venv
+          - libaugeas0
+          - nginx
+        state: present
+
+    - name: Remove certbot
+      apt:
+        name:
+          - certbot
+        state: absent
+      
+    - name: Create Python virtual environment for Certbot
+      command: python3 -m venv /opt/certbot/
+      args:
+        creates: /opt/certbot/
+
+    - name: Upgrade pip in the virtual environment
+      command: /opt/certbot/bin/pip install --upgrade pip
+
+    - name: Install Certbot and Certbot Nginx plugin
+      command: /opt/certbot/bin/pip install certbot certbot-nginx
+
+    - name: Create symbolic link for Certbot
+      file:
+        src: /opt/certbot/bin/certbot
+        dest: /usr/bin/certbot
+        state: link
+ 

@@ -1,0 +1,23 @@
+---
+- name: Install Docker on Ubuntu 20.04
+  hosts: akaylessgw.mdwlab.org 
+  become: true
+  become_method: sudo
+
+
+  tasks:
+    - name: akeyless gateway  container
+      docker_container:
+        name:  akeyless-gw
+        image: akeyless/base:latest-akeyless
+        restart: true
+        env:
+           GATEWAY_ACCESS_ID: "{{ gateway_access_id }}"
+           GATEWAY_ACCESS_KEY: "{{ gateway_access_key }}"
+        ports:
+          - "8000:8000" 
+          - "8200:8200"  
+          - "18888:18888"  
+          - "8080:8080" 
+          - "8081:8081" 
+          - "5696:5696"

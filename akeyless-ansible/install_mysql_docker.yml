@@ -1,0 +1,31 @@
+---
+- name: Install Docker on Ubuntu 20.04
+  hosts: akaylessgw.mdwlab.org 
+  become: true
+  become_method: sudo
+
+  vars:
+    db_volume: db_data
+
+  tasks:
+    - name: Install required prerequisites
+      apt:
+        name:
+          - mysql-client-core-8.0 
+          - net-tools 
+        state: present    
+
+
+
+    - name: mysql  container
+      docker_container:
+        name: mysql_db 
+        image: mysql:latest
+        volumes:
+          - "{{ db_volume }}:/var/lib/mysql"
+        restart: true
+        env:
+          MYSQL_ROOT_PASSWORD: mgXgBZTL4uUH
+          MYSQL_DATABASE: test
+        ports:
+          - "3306:3306"
