@@ -10,17 +10,17 @@ $ akeyless describe-sub-claims --profile okta-saml
       "10.20.30.40"
     ],
     "client_unique_id": [
-      "danielakeyless@gmail.com"
+      "danielakeyless@akeyless.com"
     ],
     "email": [
-      "danielakeyless@gmail.com"
+      "danielakeyless@akeyless.com"
     ],
     "groups": [
       "Everyone",
       "devops"
     ],
     "user": [
-      "danielakeyless@gmail.com"
+      "danielakeyless@akeyless.com"
     ]
   }
 }
