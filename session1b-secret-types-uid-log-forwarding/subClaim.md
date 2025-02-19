@@ -7,7 +7,7 @@ $ akeyless describe-sub-claims --profile okta-saml
 {
   "sub_claims": {
     "client_ip": [
-      "104.1.155.198"
+      "10.20.30.40"
     ],
     "client_unique_id": [
       "danielakeyless@gmail.com"
