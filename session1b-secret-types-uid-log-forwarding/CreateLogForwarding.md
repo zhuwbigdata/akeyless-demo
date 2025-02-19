@@ -4,6 +4,8 @@ Reference:
 
 
 ## AWS S3
+Block All Public Access
+
 
 ### Cloud Identity
 

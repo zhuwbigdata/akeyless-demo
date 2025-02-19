@@ -13,7 +13,7 @@ $ akeyless describe-sub-claims --profile okta-saml
       "danielakeyless@akeyless.com"
     ],
     "email": [
-      "danielakeyless@akeyless.com"
+      "danielakeyless@akeyless.com"mdk
     ],
     "groups": [
       "Everyone",
